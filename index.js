@@ -31,7 +31,7 @@ function setSize() {
   const { h, w } = PAPER_SIZE[selectSize.value];
   canvas.height = h;
   canvas.width = w;
-  ctx.fillStyle = "hsl(0, 0%, 90%)";
+  ctx.fillStyle = "#fff";
   ctx.fillRect(0, 0, w, h);
 }
 
@@ -106,7 +106,7 @@ function downloadImage() {
     const link = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = link;
-    a.download = "image.png";
+    a.download = "table.png";
     a.click();
     URL.revokeObjectURL(url);
   }, "image/png");
