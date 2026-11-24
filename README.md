@@ -1,4 +1,6 @@
 # Paper Table JS
+Make downloadable PNG images with Title, Description, and of course Tables! Made for printing purposes but can be nice if you need something fast without using image editors.
+
 ## Usage
 Title: Large title of the page. (optional)<br>
 
