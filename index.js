@@ -39,41 +39,56 @@ function draw() {
   setSize();
   const cw = canvas.width;
   const unit = canvas.width / 100;
-  const margin = unit * 8;
+  const margin = unit * 4;
   const maxW = cw - margin * 2;
   let y = margin;
+
+  // Title
   ctx.fillStyle = "#000";
-  ctx.font = `bold ${unit * 5}px sans-serif`;
+  ctx.font = `bold ${unit * 8}px sans-serif`;
   ctx.textAlign = "left";
   ctx.textBaseline = "top";
-  ctx.fillText(title.value, unit * 8, unit * 8);
+  ctx.fillText(title.value, margin, margin);
 
-  y += unit * 5 * 1.4;
+  // Description
+  y += margin * 2.5;
 
   if (desc.value.trim()) {
-    ctx.font = `${unit * 3}px sans-serif`;
+    ctx.font = `${unit * 5}px sans-serif`;
     for (const line of wrapText(desc.value, maxW)) {
-      ctx.fillText(line, unit * 8, y);
-      y += unit * 3 * 1.4;
+      ctx.fillText(line, margin, y);
+      y += unit * 3 * 1.8;
     }
-    y += unit * 3;
+    y += unit * 2;
   }
+
+  // Table
 
   const rows = table.value
     .split("\n")
     .filter((l) => l.trim())
     .map((l) => {
+      if (l.trim() === "--") return null;
       const i = l.lastIndexOf(",");
       return i < 0
         ? [l.trim(), ""]
         : [l.slice(0, i).trim(), l.slice(i + 1).trim()];
     });
 
-  ctx.font = `${unit * 3}px san-serif`;
+  ctx.font = `${unit * 4}px san-serif`;
 
-  const rowH = unit * 3 * 1;
+  const rowH = unit * 3 * 2;
 
-  for (const [label, value] of rows) {
+  for (const row of rows) {
+    if (row === null) {
+      ctx.fillStyle = "#000";
+      ctx.fillRect(margin, y, maxW, unit * 0.3);
+      y += unit * 2;
+      continue
+    }
+
+    const [label, value] = row;
+
     ctx.textAlign = "left";
     ctx.fillText(label, margin, y);
     ctx.textAlign = "right";
