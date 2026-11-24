@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Paper Table JS</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Paper Table JS</h1>
+    </header>
+
+    <main>
+      <input
+        type="text"
+        name="titleInput"
+        id="titleInput"
+        placeholder="Title?"
+      /><br />
+
+      <input
+        type="text"
+        name="descInput"
+        id="descInput"
+        placeholder="Description?"
+      /><br />
+
+      <textarea
+        name="tableInput"
+        id="tableInput"
+        placeholder="Text here.."
+        cols="35"
+        rows="5"
+      ></textarea
+      ><br />
+
+      <label for="sizeSelect">Paper size:</label>&nbsp;
+      <select id="sizeSelect">
+        <option value="a4">A4</option>
+        <option value="a3">A3</option>
+        <option value="a5">A5</option>
+        <option value="letter">Letter</option>
+      </select>
+      <br />
+      <br />
+
+     <button id="refresh">Refresh</button><button id="reset">Reset</button><button id="download">Download</button
+      ><br />
+
+      <canvas class="table-canvas" />
+    </main>
+  </body>
+  <script src="index.js"></script>
+</html>
