@@ -5,49 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Paper Table JS</title>
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
   </head>
   <body>
-    <header>
-      <h1>Paper Table JS</h1>
-    </header>
+    <div class="window" style="max-width: 300px;">
+      <div class="title-bar">
+        <div class="title-bar-text">Paper Table JS</div>
+        <div class="title-bar-controls">
+          <button aria-label="Help"></button>
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
 
-    <main>
-      <input
-        type="text"
-        name="titleInput"
-        id="titleInput"
-        placeholder="Title?"
-      />
-
-      <input
-        type="text"
-        name="descInput"
-        id="descInput"
-        placeholder="Description?"
-      />
-
-      <textarea
-        name="tableInput"
-        id="tableInput"
-        placeholder="Text here.."
-        cols="35"
-        rows="5"
-      ></textarea
-      >
-
-      <label for="sizeSelect">Paper size:</label>&nbsp;
-      <select id="sizeSelect">
-        <option value="a4">A4</option>
-        <option value="a3">A3</option>
-        <option value="a5">A5</option>
-        <option value="letter">Letter</option>
-      </select>
-
-     <button id="refresh">Refresh</button><button id="reset">Reset</button><button id="download">Download</button
-      >
-
-      <canvas class="table-canvas" />
-    </main>
+      <div class="window-body">
+        <div class="field-row-stacked" style="width: 100%">
+          <label for="titleInput">Title</label>
+          <input type="text" id="titleInput" />
+          <label for="descInput">Description</label>
+          <input type="text" id="descInput" />
+          <label for="tableInput">Table</label>
+          <textarea id="tableInput" rows="8"></textarea>
+        </div>
+        <div class="field-row">
+          <label for="sizeSelect">Paper size:</label>
+          <select id="sizeSelect">
+            <option value="a3">A3</option>
+            <option value="a5">A5</option>
+            <option value="a4" selected>A4</option>
+            <option value="letter">Letter</option>
+            <option value="square">Square</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <button id="refresh">Refresh</button>
+          <button id="reset">Reset</button>
+          <button id="download">Download</button>
+        </div>
+      </div>
+    </div>
+    <div class="window" style="max-width: 500px; width: 100%;">
+      <div class="title-bar">
+        <div class="title-bar-text">Table preview</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <canvas class="table-canvas" />
+      </div>
+    </div>
   </body>
   <script src="index.js"></script>
 </html>
